@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: 2010-09-09
-Description: A Java SpringBoot application deployed with ECS with CodeBuild/Deploy/Pipeline
+Description: A Java SpringBoot application deployed on ECS Fargate behind an ALB
 Parameters:
   ProjectName:
     Type: String
@@ -106,7 +106,7 @@ Resources:
 
   NatPublicIP:
     Type: AWS::EC2::EIP
-    DependsOn: VPC
+    DependsOn: GatewayToInternet
     Properties:
       Domain: vpc
 
